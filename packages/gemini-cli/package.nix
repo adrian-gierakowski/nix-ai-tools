@@ -37,9 +37,6 @@ buildNpmPackage (finalAttrs: {
   buildInputs = [
     ripgrep
     libsecret
-  ]
-  ++ lib.optionals stdenv.hostPlatform.isLinux [
-    xsel
   ];
 
   preConfigure = ''
