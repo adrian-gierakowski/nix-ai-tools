@@ -10,7 +10,6 @@
   clang_20,
   makeBinaryWrapper,
   xsel,
-  xdg-utils,
 }:
 
 buildNpmPackage (finalAttrs: {
@@ -36,7 +35,6 @@ buildNpmPackage (finalAttrs: {
   ];
 
   buildInputs = [
-    ripgrep
     libsecret
   ];
 
@@ -65,7 +63,7 @@ buildNpmPackage (finalAttrs: {
 
     ${lib.optionalString stdenv.hostPlatform.isLinux ''
       wrapProgram $out/bin/gemini \
-        --prefix PATH : ${lib.makeBinPath [ xsel xdg-utils ]}
+        --prefix PATH : ${lib.makeBinPath [ xsel ripgrep ]}
     ''}
 
     runHook postInstall
